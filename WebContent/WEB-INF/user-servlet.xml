@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd">
+	
+	<!-- 将静态文件指定到某个特殊的文件夹中统一处理，必须mapping="/resources/**" -->
+	<mvc:resources location="/resources/" mapping="/resources/**"></mvc:resources>
+	
+	<!-- 使用defaultAnnotationHandleMapping -->
+	<mvc:annotation-driven/>
+	<!-- 开启action注解支持 -->
+	<context:component-scan base-package="org.common.action"/>
+	
+	<!-- InternalResourceViewResolver视图的映射关系，还有其他很多视图 -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/jsp/"/>
+		<property name="suffix" value=".jsp"/>
+	</bean>
+	
+	<!-- 全局异常配置 -->
+	<bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="exceptionMappings">
+			<props>
+				<prop key="org.common.model.UserException">error</prop>
+			</props>
+		</property>
+	</bean>
+
+</beans>

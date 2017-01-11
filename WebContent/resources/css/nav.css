@@ -1,0 +1,40 @@
+*{
+    margin:0px;
+    padding:0px;
+}
+
+body {
+	margin:0px;
+    padding:12px;
+    font-size: 20px;
+}
+
+input.only_show  {
+	position: relative;
+	width: 120px;
+	font-size: 20px;
+	border: none;
+	font-weight: bold;
+	
+}
+
+input.only_focus {
+	width: 120px;
+	font-size: 20px;
+	border: none;
+	color: #FF6600;	
+	font-weight: bold;
+}
+
+input.normal  {
+	padding: 0 10px;
+	position: relative;
+	height: 30px;
+	font-weight: bold;
+	
+}
+
+span {
+	padding-left: 10px; 
+	font-weight: bold;
+}
